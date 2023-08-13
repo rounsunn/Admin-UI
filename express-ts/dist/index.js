@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const port = 8000;
 app.get("/users", (req, res) => {
-    res.send("Hello World! from express using TS!!!");
+    res.send("Users is not available till now using concurrently");
 });
 app.listen(port, () => {
     console.log("server app listening on port 8000!");
