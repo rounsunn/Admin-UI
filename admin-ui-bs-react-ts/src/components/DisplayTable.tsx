@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { UserInterface, UserListInterface } from "../interface/userInterface";
 import DsiplayRow from "./DsiplayRow";
+import { updateUser } from "../api/updateUser";
+import { deleteUser } from "../api/deleteUsers";
 
 const delBtnClass = "btn rounded-pill btn-sm btn-outline-danger p-2";
 const addBtnClass = "btn rounded-pill btn-sm btn-outline-warning p-2";
@@ -59,6 +61,7 @@ const DisplayTable = (props: tableProps) => {
       if (user.id === editedUser.id) user = editedUser;
       return user;
     });
+    updateUser(editedUser);
     setUSERS({ allUsers: editedAllUsers, filteredUsers: editedFilteredUsers });
   };
 
@@ -77,6 +80,7 @@ const DisplayTable = (props: tableProps) => {
       });
       return flag;
     });
+    deleteUser(ids);
     setUSERS({ allUsers: finalAllUsers, filteredUsers: finalFileteredUsers });
   };
 

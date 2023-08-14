@@ -8,6 +8,7 @@ import { baseURL } from "../api/api";
 import { defaultUsersList } from "../interface/defaultValues";
 import { UserInterface } from "../interface/userInterface";
 import AddNewUsers from "./AddNewUsers";
+import { addUser } from "../api/addUsers";
 
 const UserDashboard = () => {
   const { isLoading, apiUserData, serverError } = useFetch(baseURL);
@@ -44,6 +45,7 @@ const UserDashboard = () => {
       allUsers: [...USERS.allUsers, ...newUsers],
       filteredUsers: [...USERS.filteredUsers, ...newUsers],
     });
+    void addUser(newUsers);
     setIsAdding(false);
   };
 
