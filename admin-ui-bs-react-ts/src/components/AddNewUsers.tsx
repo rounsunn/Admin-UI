@@ -13,9 +13,11 @@ const AddNewUsers = ({ handleAdd }: props) => {
   const [newUsers, setNewUsers] = useState(defaultUsers);
 
   const addNewUser = () => {
-    if (newUser.name != "") {
+    if (newUser.name != "" && newUser.email != "" && newUser.role != "") {
       setNewUsers([...newUsers, { ...newUser, id: Math.random().toString() }]);
       setNewUser(defaultUser);
+    } else {
+      alert("Please fill all the fields");
     }
   };
 

@@ -61,8 +61,15 @@ const DisplayTable = (props: tableProps) => {
       if (user.id === editedUser.id) user = editedUser;
       return user;
     });
-    updateUser(editedUser);
-    setUSERS({ allUsers: editedAllUsers, filteredUsers: editedFilteredUsers });
+    try {
+      updateUser(editedUser);
+      setUSERS({
+        allUsers: editedAllUsers,
+        filteredUsers: editedFilteredUsers,
+      });
+    } catch (error) {
+      console.log("Error while updating user", error);
+    }
   };
 
   const handleDelete = (ids: string[] = selectedUsers) => {

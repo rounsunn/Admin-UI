@@ -5,7 +5,7 @@ export const deleteUser = async (userIds: string[]) => {
   if (userIds.length > 0) {
     console.log(userIds);
     try {
-      const resp = await axios.delete(`${baseURL}/delete`, {
+      const resp = await axios.delete(`${baseURL}/deleteUsers`, {
         data: { userIds: userIds }, // Send userIds as data in the request
       });
       console.log(resp.data);

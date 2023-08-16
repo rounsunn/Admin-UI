@@ -12,7 +12,7 @@ const useFetch = (url: string) => {
     setIsLoading(true);
     const fetchUsers = async () => {
       try {
-        const resp = await axios.get<UserInterface[]>(url);
+        const resp = await axios.get<UserInterface[]>(`${url}/getUsers`);
         setApiUserData(resp.data);
       } catch (error) {
         if (error instanceof Error) {

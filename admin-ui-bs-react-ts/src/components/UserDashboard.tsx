@@ -40,13 +40,23 @@ const UserDashboard = () => {
     setUSERS((users) => ({ ...users, filteredUsers: filteredUsers }));
   }
 
-  const handleAdd = (newUsers: UserInterface[]) => {
-    setUSERS({
-      allUsers: [...USERS.allUsers, ...newUsers],
-      filteredUsers: [...USERS.filteredUsers, ...newUsers],
-    });
-    void addUser(newUsers);
-    setIsAdding(false);
+  const handleAdd = async (newUsers: UserInterface[]) => {
+    try {
+      // Call addUser function with await to catch errors
+      await addUser(newUsers);
+
+      // If addUser is successful, update the state
+      setUSERS({
+        allUsers: [...USERS.allUsers, ...newUsers],
+        filteredUsers: [...USERS.filteredUsers, ...newUsers],
+      });
+
+      setIsAdding(false);
+    } catch (error) {
+      // Handle the error
+      console.error("Error while adding users:", error);
+      // Perform any error handling actions you need
+    }
   };
 
   return isLoading || serverError !== "" ? (
