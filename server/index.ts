@@ -10,6 +10,8 @@ app.use(cors());
 app.use(bodyParser.json());
 dotenv.config();
 
+console.log(process.env.MONGOLAB_URI);
+
 mongoose.connect(process.env.MONGOLAB_URI as string);
 
 app.get("/", (req, res) => {
