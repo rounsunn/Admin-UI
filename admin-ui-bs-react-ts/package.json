@@ -2,7 +2,7 @@
   "name": "admin-ui-bs-react-ts",
   "private": true,
   "version": "0.0.0",
-  "proxy": "http://localhost:8000",
+  "proxy": "https://admin-ui-server.vercel.app",
   "type": "module",
   "scripts": {
     "dev": "vite",
